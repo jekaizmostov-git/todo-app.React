@@ -1,0 +1,35 @@
+.todo-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rdba(0,0,0,0.5);
+}
+
+.todo-item button{
+  margin-left: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  background: transparent;
+}
+
+.todo-item .complited{
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
+
+.change-task-title{
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.change-task-title:focus{
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.812);
+}
