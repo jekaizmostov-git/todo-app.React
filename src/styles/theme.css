@@ -1,0 +1,61 @@
+:root{
+  --app-color: #ffffff;
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --accent-color: #007bff;
+  --item-bg: #fff;
+  --border-color: #dee2e6;
+  --input-bg-color: #f8f9fa;
+  --input-b-b-color: #cfd4d9;
+  --theme-btn-bg-color: #edbe17;
+  --theme-btn-text-color: #ffffff;
+}
+
+[data-theme='dark']{
+  --app-color: #222223;
+  --bg-color: #1e1e1e;
+  --text-color: #e9ecef;
+  --accent-color: #0d6efd;
+  --item-bg: #2b2b2b;
+  --border-color: #343a40;
+  --input-bg-color: #1e1e1e;
+  --input-b-b-color: #b62c2c;
+  --theme-btn-bg-color: #3717ed;
+  --theme-btn-text-color: #ffffff;
+}
+
+body{
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.todo-item{
+  background-color: var(--item-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app{
+  background-color: var(--app-color);
+}
+
+input{
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  border: none;
+}
+
+
+.change-theme-btn{
+  background-color: var(--theme-btn-bg-color);
+  color: var(--theme-btn-text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+

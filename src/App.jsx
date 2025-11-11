@@ -1,4 +1,6 @@
 import './styles/App.css';
+import './styles/theme.css'
+
 import ToDoInput from './components/ToDoInput';
 import ToDoList from './components/ToDoList';
 import { useState } from 'react';
@@ -8,6 +10,19 @@ import UseDebounceEffect from './hooks/useDebounceEffect';
 
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme : "light";
+  });
+  function onChangeTheme(){
+    (theme === 'dark')?setTheme('light'):setTheme('dark');
+  }
+  document.body.dataset.theme = theme;
+
+  UseDebounceEffect(()=> {
+    localStorage.setItem('theme', theme);
+  },[theme], 500);
+
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem('tasks');
     return saved ? JSON.parse(saved) : [];
@@ -15,7 +30,7 @@ function App() {
 
   UseDebounceEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks], 300)
+  }, [tasks], 500)
 
   function onAddTask(title){ 
     setTasks((tasks) => [...tasks, {id:crypto.randomUUID(), title:title, completed:false}]);
@@ -52,6 +67,7 @@ function App() {
 
   return (
     <div className='app'>
+      <button className='change-theme-btn' onClick={onChangeTheme}>THEME</button>
       <h1>ToDo List</h1>
       <ToDoInput onAddTask={onAddTask} />
       <ToDoList 
