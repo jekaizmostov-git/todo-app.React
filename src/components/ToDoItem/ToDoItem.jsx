@@ -1,5 +1,6 @@
 // Отдельная задача, с текстом, кнопками: выполнить, удалить.
-import '../styles/ToDoItem.css';
+
+import styles from './ToDoItem.module.css';
 import { useRef, useState, useEffect } from 'react';
 
 export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChangeTaskTitle}){
@@ -28,7 +29,7 @@ export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChan
 
   if (status === 'read'){
     taskContent = <span 
-        className={task.completed?'complited':''} 
+        className={task.completed?styles.completed:''} 
         onDoubleClick={doubleClickHandler}
         ref={refTask}
         >
@@ -36,7 +37,7 @@ export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChan
         </span>;
   } else if (status === 'write'){
     taskContent = <input 
-          className="change-task-title" 
+          className={styles.changeTaskTitle}
           type="text" 
           defaultValue={task.title}
           onBlur={blurHandler}
@@ -47,7 +48,7 @@ export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChan
 
   
   return (
-    <li className='todo-item' >
+    <li className={styles.todoItem} >
         {taskContent}
        <div>
          <button onClick={() => onToggleCompleteId(task.id)}>✅</button>

@@ -1,12 +1,12 @@
 // Поле ввода, кнопка добавления задач
 import { useRef } from 'react';
-import '../styles/ToDoInput.css';
-
+//import '../../styles/ToDoInput.css';
+import styles from './ToDoInput.module.css';
 
 export default function ToDoInput({onAddTask}){
   const inputRef = useRef(null);
   return (
-    <div className='todo-input'>
+    <div className={styles.todoInput}>
       <input type="text" placeholder='Введите задачу...' ref={inputRef} />
       <button onClick={() => {
         const title = inputRef.current.value;

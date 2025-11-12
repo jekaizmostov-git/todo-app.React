@@ -1,21 +1,21 @@
-.todo-input{
+.todoInput{
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.todo-input input{
+.todoInput input{
   flex: 1;
   padding: 10px;
   font-size: 16px;
   outline: none;
 }
 
-.todo-input button{
+.todoInput button{
   background-color: #4caf50;
 }
 
-.todo-input button:hover{
+.todoInput button:hover{
   background-color: #43a047;
 }

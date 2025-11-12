@@ -1,7 +1,7 @@
 //Список всех задач
-import '../styles/ToDoList.css';
+import styles from "./ToDoList.module.css";
 
-import ToDoItem from './ToDoItem';
+import ToDoItem from '../ToDoItem/ToDoItem';
 
 export default function ToDoList({tasks, onDeleteTask, onToggleCompleteId, onChangeTaskTitle}){
   let tasksIsEmpty = false;
@@ -9,7 +9,7 @@ export default function ToDoList({tasks, onDeleteTask, onToggleCompleteId, onCha
     tasksIsEmpty = true;
   }
   return (
-    <ul className='todo-list'>
+    <ul className={styles.todoList}>
       {tasksIsEmpty && <li>Список пуст</li>}
       {tasks.map(task => 
         <ToDoItem task={task} 

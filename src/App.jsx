@@ -1,10 +1,10 @@
-import './styles/App.css';
-import './styles/theme.css'
+import styles from './styles/App.module.css';
 
-import ToDoInput from './components/ToDoInput';
-import ToDoList from './components/ToDoList';
+
+import ToDoInput from './components/ToDoInput/ToDoInput';
+import ToDoList from './components/ToDoList/ToDoList';
 import { useState } from 'react';
-import FilteringTasks from './components/FilteringTasks';
+import FilteringTasks from './components/FilteringTasks/FilteringTasks';
 
 import UseDebounceEffect from './hooks/useDebounceEffect';
 
@@ -66,7 +66,7 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <div className={styles.app}>
       <button className='change-theme-btn' onClick={onChangeTheme}>THEME</button>
       <h1>ToDo List</h1>
       <ToDoInput onAddTask={onAddTask} />

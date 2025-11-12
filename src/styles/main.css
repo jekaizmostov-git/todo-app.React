@@ -29,8 +29,8 @@ body{
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-.todo-item{
+/* 
+.todoItem{
   background-color: var(--item-bg);
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -40,7 +40,7 @@ body{
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
+} */
 
 .app{
   background-color: var(--app-color);
@@ -59,3 +59,10 @@ input{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
