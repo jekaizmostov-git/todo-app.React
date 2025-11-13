@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import {useState} from "react";
+import useDebounceEffect from "./useDebounceEffect";  
 
 /** (фига се)
  * useLocalStorage — работает как useState, но синхронизирует данные с localStorage.
@@ -19,13 +20,13 @@ export default function useLocalStorage(key, initialValue){
     }
   })
 
-  useEffect(() => {
+  useDebounceEffect(() => {
     try{
       localStorage.setItem(key, JSON.stringify(data)); 
     } catch (error){
       console.error('Ошибка записи в localstorage!', error);
     }
-  },[key, data])
+  }, [key, data], 500);
 
   return [data, setData];
 }

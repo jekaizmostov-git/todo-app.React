@@ -3,10 +3,10 @@ import styles from './styles/App.module.css';
 
 import ToDoInput from './components/ToDoInput/ToDoInput';
 import ToDoList from './components/ToDoList/ToDoList';
-//import { useState } from 'react';
+
 import FilteringTasks from './components/FilteringTasks/FilteringTasks';
 
-//import useDebounceEffect from './hooks/useDebounceEffect';
+
 import useTask from './hooks/UseTask';
 import useTheme from './hooks/useTheme';
 import useFilter from './hooks/useFilter';

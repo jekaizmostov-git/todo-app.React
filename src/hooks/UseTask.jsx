@@ -1,14 +1,8 @@
-
-import useDebounceEffect from "./useDebounceEffect";
 import useLocalStorage from "./useLocalStorage";
 
 export default function useTask(){
   const [tasks, setTasks] = useLocalStorage('tasks', []);
-  
-    useDebounceEffect(() => {
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }, [tasks], 500)
-  
+
     function addTask(title){ 
       setTasks((tasks) => [...tasks, {id:crypto.randomUUID(), title:title, completed:false}]);
     }
