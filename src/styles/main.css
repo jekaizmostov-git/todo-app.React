@@ -1,4 +1,4 @@
-:root{
+:root {
   --app-color: #ffffff;
   --bg-color: #f8f9fa;
   --text-color: #212529;
@@ -11,7 +11,7 @@
   --theme-btn-text-color: #ffffff;
 }
 
-[data-theme='dark']{
+[data-theme="dark"] {
   --app-color: #222223;
   --bg-color: #1e1e1e;
   --text-color: #e9ecef;
@@ -24,10 +24,12 @@
   --theme-btn-text-color: #ffffff;
 }
 
-body{
+body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 /* 
 .todoItem{
@@ -42,21 +44,22 @@ body{
   transition: background-color 0.3s ease, color 0.3s ease;
 } */
 
-.app{
+.app {
   background-color: var(--app-color);
 }
 
-input{
+input {
   background-color: var(--input-bg-color);
   color: var(--text-color);
   border: none;
 }
 
-
-.change-theme-btn{
+.change-theme-btn {
   background-color: var(--theme-btn-bg-color);
   color: var(--theme-btn-text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 button {

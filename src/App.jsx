@@ -1,44 +1,47 @@
-import styles from './styles/App.module.css';
+import styles from "./styles/App.module.css";
 
+import ToDoInput from "./components/ToDoInput/ToDoInput";
+import ToDoList from "./components/ToDoList/ToDoList";
 
-import ToDoInput from './components/ToDoInput/ToDoInput';
-import ToDoList from './components/ToDoList/ToDoList';
+import FilteringTasks from "./components/FilteringTasks/FilteringTasks";
 
-import FilteringTasks from './components/FilteringTasks/FilteringTasks';
+import useTask from "./hooks/UseTask";
+import useTheme from "./hooks/useTheme";
+import useFilter from "./hooks/useFilter";
 
+function App() {
+  const { tasks, addTask, deleteTask, toggleTask, editTask } = useTask();
+  const { filter, setFilter, changeFilter } = useFilter();
+  const { theme, changeTheme } = useTheme();
 
-import useTask from './hooks/UseTask';
-import useTheme from './hooks/useTheme';
-import useFilter from './hooks/useFilter';
-
-
-function App() {        
-  const {tasks, addTask, deleteTask, toggleTask, editTask } = useTask();
-  const {filter, setFilter, changeFilter} = useFilter();
-  const {theme, changeTheme} = useTheme();   
-
-  function handleAddTask(title){
+  function handleAddTask(title) {
     addTask(title);
-    setFilter('all');
+    setFilter("all");
   }
 
   document.body.dataset.theme = theme;
   return (
     <div className={styles.app}>
-      <button className='change-theme-btn' onClick={changeTheme}>THEME</button>
+      <button className="change-theme-btn" onClick={changeTheme}>
+        THEME
+      </button>
       <h1>ToDo List</h1>
-      <ToDoInput onAddTask={handleAddTask}/>
-      <ToDoList 
+      <ToDoInput onAddTask={handleAddTask} />
+      <ToDoList
         tasks={
-          filter === 'all'?tasks:((filter === 'pending')?tasks.filter(t => !t.completed):tasks.filter(t =>t.completed))
-        } 
-        onDeleteTask={deleteTask} 
+          filter === "all"
+            ? tasks
+            : filter === "pending"
+              ? tasks.filter((t) => !t.completed)
+              : tasks.filter((t) => t.completed)
+        }
+        onDeleteTask={deleteTask}
         onToggleCompleteId={toggleTask}
         onChangeTaskTitle={editTask}
       />
-      <FilteringTasks onFilterTasks={changeFilter}/>
+      <FilteringTasks onFilterTasks={changeFilter} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

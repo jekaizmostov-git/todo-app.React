@@ -1,30 +1,30 @@
-.filter{
+.filter {
   display: flex;
   justify-content: center;
   gap: 10px;
   padding-top: 10px;
 }
 
-.allTasksBtn{
+.allTasksBtn {
   background-color: grey;
 }
 
-.readyTasksBtn{
+.readyTasksBtn {
   background-color: rgb(23, 179, 59);
 }
 
-.pendingTasksBtn{
+.pendingTasksBtn {
   background-color: rgb(23, 104, 179);
 }
 
-.allTasksBtn:hover{
+.allTasksBtn:hover {
   background-color: rgb(116, 116, 116);
 }
 
-.readyTasksBtn:hover{
+.readyTasksBtn:hover {
   background-color: rgb(19, 158, 52);
 }
 
-.pendingTasksBtn:hover{
+.pendingTasksBtn:hover {
   background-color: rgb(18, 89, 156);
 }

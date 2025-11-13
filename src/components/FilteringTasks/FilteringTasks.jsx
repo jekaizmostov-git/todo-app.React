@@ -1,28 +1,28 @@
 //import '../styles/FilteringTasks.css';
 
-import styles from './FilteringTasks.module.css';
+import styles from "./FilteringTasks.module.css";
 
-export default function FilteringTasks({onFilterTasks}){
+export default function FilteringTasks({ onFilterTasks }) {
   return (
     <div className={styles.filter}>
-      <button 
+      <button
         className={styles.allTasksBtn}
-        onClick={() => onFilterTasks('all')}
+        onClick={() => onFilterTasks("all")}
       >
         Все задачи
       </button>
-      <button 
-        className={styles.readyTasksBtn} 
-        onClick={() => onFilterTasks('completed')}
+      <button
+        className={styles.readyTasksBtn}
+        onClick={() => onFilterTasks("completed")}
       >
-          Выполненные 
+        Выполненные
       </button>
-      <button 
+      <button
         className={styles.pendingTasksBtn}
-        onClick={() => onFilterTasks('pending')}
+        onClick={() => onFilterTasks("pending")}
       >
         В работе!
       </button>
     </div>
-  )
+  );
 }

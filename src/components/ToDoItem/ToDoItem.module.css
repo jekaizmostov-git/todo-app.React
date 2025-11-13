@@ -1,16 +1,18 @@
-.todoItem{
+.todoItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
   margin-bottom: 8px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rdba(0,0,0,0.5);
+  box-shadow: 0 2px 4px rdba(0, 0, 0, 0.5);
   background-color: var(--item-bg);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.todoItem button{
+.todoItem button {
   margin-left: 5px;
   border: none;
   cursor: pointer;
@@ -18,19 +20,19 @@
   background: transparent;
 }
 
-.todoItem .completed{
+.todoItem .completed {
   text-decoration: line-through;
   color: gray;
   opacity: 0.7;
 }
 
-.changeTaskTitle{
+.changeTaskTitle {
   padding: 5px;
   border: none;
   /* border-bottom: 1px solid rgb(170, 170, 170); */
 }
 
-.changeTaskTitle:focus{
+.changeTaskTitle:focus {
   outline: none;
   /* border-bottom: 1px solid rgba(0, 0, 0, 0.812); */
 }
