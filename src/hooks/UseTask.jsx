@@ -1,11 +1,9 @@
-import {useState} from "react";
+
 import useDebounceEffect from "./useDebounceEffect";
+import useLocalStorage from "./useLocalStorage";
 
 export default function useTask(){
-  const [tasks, setTasks] = useState(() => {
-      const saved = localStorage.getItem('tasks');
-      return saved ? JSON.parse(saved) : [];
-    });
+  const [tasks, setTasks] = useLocalStorage('tasks', []);
   
     useDebounceEffect(() => {
       localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -13,12 +11,10 @@ export default function useTask(){
   
     function addTask(title){ 
       setTasks((tasks) => [...tasks, {id:crypto.randomUUID(), title:title, completed:false}]);
-      //setStateFilter('all');
     }
   
     function deleteTask(id){
       setTasks((tasks) => tasks.filter(task => task.id !== id ));
-      //setStateFilter('all');
     }
   
     function toggleTask(id){

@@ -4,17 +4,19 @@ import styles from './ToDoItem.module.css';
 import { useRef, useState, useEffect } from 'react';
 
 export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChangeTaskTitle}){
-  const [status, setStatus] = useState('read');
   const refTask = useRef(null);
-  let taskContent;
+  const [status, setStatus] = useState('read');
 
   function doubleClickHandler(){
     setStatus('write');
   }
+
   function blurHandler(e){
     setStatus('read');
     onChangeTaskTitle(task.id, e.target.value);
   }
+
+
   function keyDownHandler(e){
     if (e.key === "Enter"){
       e.target.blur();
@@ -27,16 +29,18 @@ export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChan
     }
   },[status]);
 
-  if (status === 'read'){
-    taskContent = <span 
+  function renderContent(){
+    if (status === 'read'){
+      return <span 
         className={task.completed?styles.completed:''} 
         onDoubleClick={doubleClickHandler}
         ref={refTask}
         >
           {task.title}
-        </span>;
-  } else if (status === 'write'){
-    taskContent = <input 
+        </span>
+    }
+    else {
+      return <input 
           className={styles.changeTaskTitle}
           type="text" 
           defaultValue={task.title}
@@ -44,12 +48,12 @@ export default function ToDoItem({task, onDeleteTask, onToggleCompleteId, onChan
           onKeyDown={keyDownHandler}
           ref={refTask}
         />
+    }
   }
-
   
   return (
     <li className={styles.todoItem} >
-        {taskContent}
+        {renderContent()}
        <div>
          <button onClick={() => onToggleCompleteId(task.id)}>✅</button>
          <button onClick={() => onDeleteTask(task.id)}>🗑️</button>

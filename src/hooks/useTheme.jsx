@@ -1,11 +1,9 @@
-import {useState} from 'react';
+
 import useDebounceEffect from './useDebounceEffect';
+import useLocalStorage from './useLocalStorage';
 
 export default function useTheme(){
-  const [theme, setTheme] = useState(() => {
-      const savedTheme = localStorage.getItem('theme');
-      return savedTheme ? savedTheme : "light";
-    });
+  const [theme,setTheme] = useLocalStorage('theme', 'light');
     function changeTheme(){
       (theme === 'dark')?setTheme('light'):setTheme('dark');
     }
